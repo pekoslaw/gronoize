@@ -1,4 +1,4 @@
 memoize
 =======
 
-Python/Django rock solid memoize
+Rock solid memoize for Python/Django.

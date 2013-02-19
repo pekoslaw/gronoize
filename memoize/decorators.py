@@ -7,8 +7,6 @@ from memoize.constants import MEMCACHE_NONE
 from memoize.utils import get
 from memoize.utils import put
 
-__version__ = '3.0.½'
-
 u"""
 MEMOIZE 3.0.½
 
@@ -30,11 +28,14 @@ def memoize(key_function, vkey_function=None, timeout=DEFAULT_TIMEOUT,
     Dekorator, ktory kaszuje wynik funkcji i zapisuje w memcached pod wskazanym kluczem.
       :key_function: funkcja, ktora przeksztalca args i kwargs na klucz do memcache,
                      jesli ta funkcja zwroci None zapytanie NIE JEST KESZOWANE
+      :vkey_function: ---
       :l1: czy keszowac i inwalidowac wyniki w lokalnym keszu per resquest (WYMAGA MIDDELWARE!)
+      :use_deepcopy: ---
       :timeout: maksymalny czas ważności danych w memkeszu (uwaga - memcached nie gwarantuje
                 przechowywania danych aż do timeoutu)
-      :optionaladd - powoduje warunkowe wlozenie elementu, tylko wtedy jesli go jeszcze nie ma w cache
+      :optionaladd: - powoduje warunkowe wlozenie elementu, tylko wtedy jesli go jeszcze nie ma w cache
                     (rozwiazuje problem wyscigow i podwojne wkladanie wartosci przez dwa rownolegle procey)
+      :MEMOIZE_REFRESH: - wymusza zaladowanie do cache nowych danych
     """
     def decorator(f):
         @wraps(f)
