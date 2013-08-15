@@ -20,9 +20,8 @@ log = logging.getLogger(__name__)
 
 try:
     from hash_ring import MemcacheRing as MemClient
-#    from memcache import Client as MemClient
 except ImportError:
-    raise InvalidCacheBackendError("Memcached cache backend requires either the 'memcache' and 'hash_ring' library")
+    from memcache import Client as MemClient
 
 
 ANGRY_CHARACTERS = [' ', '"', "'", '\n', '<', '>']

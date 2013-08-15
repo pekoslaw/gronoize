@@ -2,10 +2,10 @@
 
 import logging
 from functools import wraps
-from memoize.constants import DEFAULT_TIMEOUT
-from memoize.constants import MEMCACHE_NONE
-from memoize.utils import get
-from memoize.utils import put
+from gronoize.constants import DEFAULT_TIMEOUT
+from gronoize.constants import MEMCACHE_NONE
+from gronoize.utils import get
+from gronoize.utils import put
 
 u"""
 MEMOIZE 3.0.½

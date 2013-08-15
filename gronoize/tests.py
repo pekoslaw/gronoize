@@ -1,17 +1,17 @@
 #-*- coding: utf-8 -*-
 
-from memoize.constants import MEMCACHE_NONE
-from memoize.decorators import memoize
-from memoize.utils import _get
-from memoize.utils import delete
-from memoize.utils import get
-from memoize.utils import get_many
-from memoize.utils import invalidate
-from memoize.utils import invalidatev
-from memoize.utils import localcache_clear
-from memoize.utils import localcache_get
-from memoize.utils import localcache_put
-from memoize.utils import put
+from gronoize.constants import MEMCACHE_NONE
+from gronoize.decorators import memoize
+from gronoize.utils import _get
+from gronoize.utils import delete
+from gronoize.utils import get
+from gronoize.utils import get_many
+from gronoize.utils import invalidate
+from gronoize.utils import invalidatev
+from gronoize.utils import localcache_clear
+from gronoize.utils import localcache_get
+from gronoize.utils import localcache_put
+from gronoize.utils import put
 
 
 # Testy
@@ -245,7 +245,7 @@ if __name__ == "__main__":
 
     @memoize(lambda a, b : "%rnaa%s" % (a,b), group_vkey, timeout = 1 )
     def raising(a, b):
-        raise Exception, "dupa"
+        raise Exception("dupa")
 
 
     """

@@ -3,7 +3,7 @@
 Middleware ten odpowiada za wyczyszczenie lokalnego cache przed i po requescie.
 """
 
-from memoize.utils import localcache_clear
+from gronoize.utils import localcache_clear
 
 class ClearLocalCacheMiddleware(object):
     def process_request(self, request):

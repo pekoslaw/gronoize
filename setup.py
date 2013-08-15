@@ -1,14 +1,17 @@
 #!/usr/bin/env python
 
+
 from distutils.core import setup
-from memoize import __version__
-setup(name='memoize',
+from distutils.extension import Extension
+from Cython.Distutils import build_ext
+from gronoize import __version__
+setup(name='gronoize',
     version=__version__,
-    packages=['memoize'],
+    packages=['gronoize', 'gronoize.backends'],
     description='Rock solid memoize for Python/Django',
-    author='matee',
-    author_email='memoize@matee.net',
-    url='https://github.com/matee911/memoize',
+    author=u'Piotr Kalmus',
+    author_email='pckalmus@gmail.com',
+    url='https://github.com/pekoslaw/gronoize',
     keywords = ['cache', 'memoize', 'django'],
     classifiers = [
         "Programming Language :: Python",
@@ -21,9 +24,7 @@ setup(name='memoize',
         "Environment :: Web Environment",
         "Environment :: Other Environment",
         "Operating System :: OS Independent",
-        "Programming Language :: Python :: 2 :: Only",
-        "Programming Language :: Python :: 2.7",
-        "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 3 :: Only",
         "Topic :: Database",
         "Topic :: Internet",
         "Topic :: Internet :: WWW/HTTP",
@@ -35,5 +36,10 @@ setup(name='memoize',
         "Topic :: Software Development :: Libraries",
         "Topic :: Software Development :: Libraries :: Python Modules",
         
-    ]
-    )
+    ],
+    cmdclass = {'build_ext': build_ext},
+    ext_modules = [Extension("gronoize.utils", ["gronoize/utils.py"]),
+                   Extension("gronoize.decorators", ["gronoize/decorators.py"]),
+                   Extension("gronoize.middleware", ["gronoize/middleware.py"]),
+                   ]
+)

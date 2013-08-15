@@ -11,7 +11,7 @@ import random
 from copy import deepcopy
 from django.conf import settings
 from django.core.cache import cache
-from memoize.constants import MEMCACHE_NONE
+from gronoize.constants import MEMCACHE_NONE
 
 log = logging.getLogger(__name__)
 
